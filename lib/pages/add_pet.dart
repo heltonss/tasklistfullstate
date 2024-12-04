@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fulltasks/services/task_service.dart';
+import 'package:petconecta/components/input_text.dart';
+import 'package:petconecta/services/pet_conecta_service.dart';
 import 'package:provider/provider.dart';
 
 class AddTaskPage extends StatefulWidget {
@@ -28,8 +29,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
       return;
     }
 
-    Provider.of<TaskService>(context, listen: false)
-        .addTask(title, description);
+    Provider.of<PetConectaService>(context, listen: false)
+        .addPet(title, description);
     Navigator.pop(context);
   }
 
@@ -44,22 +45,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              controller: _titleController,
-              decoration: const InputDecoration(
-                labelText: "Nome do pet",
-                border: OutlineInputBorder(),
-              ),
-            ),
+            InputTextField(
+                controller: _titleController, labelText: "Nome do pet"),
             const SizedBox(height: 16),
-            TextField(
-              controller: _descriptionController,
-              maxLines: 4,
-              decoration: const InputDecoration(
-                labelText: "Descrição do pet",
-                border: OutlineInputBorder(),
-              ),
-            ),
+            InputTextField(
+                controller: _descriptionController,
+                labelText: "Idade do pet",
+                maxLines: 4),
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: _submitTask,

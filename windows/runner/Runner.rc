@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "fulltasks" "\0"
+            VALUE "FileDescription", "petconecta" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "fulltasks" "\0"
+            VALUE "InternalName", "petconecta" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "fulltasks.exe" "\0"
-            VALUE "ProductName", "fulltasks" "\0"
+            VALUE "OriginalFilename", "petconecta.exe" "\0"
+            VALUE "ProductName", "petconecta" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

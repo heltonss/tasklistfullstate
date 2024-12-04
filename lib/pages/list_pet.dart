@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:fulltasks/pages/add_task.dart';
-import 'package:fulltasks/services/task_service.dart';
+import 'package:petconecta/pages/add_pet.dart';
+import 'package:petconecta/services/pet_conecta_service.dart';
 import 'package:provider/provider.dart';
 
-class TaskListPage extends StatefulWidget {
-  const TaskListPage({super.key});
+class PetListPage extends StatefulWidget {
+  const PetListPage({super.key});
 
   @override
-  State<TaskListPage> createState() => _TaskListPageState();
+  State<PetListPage> createState() => _PetListPageState();
 }
 
-class _TaskListPageState extends State<TaskListPage> {
+class _PetListPageState extends State<PetListPage> {
   void _addTask() {
     Navigator.push(
       context,
@@ -20,12 +20,12 @@ class _TaskListPageState extends State<TaskListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final taskService = Provider.of<TaskService>(context);
+    final taskService = Provider.of<PetConectaService>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Lista de pets"),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
@@ -45,13 +45,23 @@ class _TaskListPageState extends State<TaskListPage> {
               itemCount: taskService.tasks.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  leading: const Icon(Icons.task_alt),
+                  leading: CircleAvatar(
+                    backgroundImage: taskService
+                                .tasks[index]["imageUrl"]?.isNotEmpty ==
+                            true
+                        ? NetworkImage(taskService.tasks[index]["imageUrl"]!)
+                        : null,
+                    child:
+                        taskService.tasks[index]["imageUrl"]?.isNotEmpty != true
+                            ? const Icon(Icons.pets, color: Colors.white)
+                            : null,
+                  ),
                   title: Text(taskService.tasks[index]["title"]!),
                   subtitle: Text(taskService.tasks[index]["description"]!),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
                     color: Colors.red,
-                    onPressed: () => taskService.removeTask(index),
+                    onPressed: () => taskService.removePet(index),
                   ),
                 );
               },

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fulltasks/pages/list.dart';
-import 'package:fulltasks/services/task_service.dart';
+import 'package:petconecta/pages/list_pet.dart';
+import 'package:petconecta/services/pet_conecta_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => TaskService()),
+        ChangeNotifierProvider(create: (_) => PetConectaService()),
       ],
       child: const MyApp(),
     ),
@@ -49,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   signIn() {
     if (login == _login && password == _password) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const TaskListPage()),
+        MaterialPageRoute(builder: (context) => const PetListPage()),
       );
     } else {
       Fluttertoast.showToast(

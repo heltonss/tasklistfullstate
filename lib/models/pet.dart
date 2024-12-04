@@ -1,11 +1,11 @@
-class Task {
+class Pet {
   String title;
   String description;
-  bool isCompleted;
+  String? imageUrl;
 
-  Task({
+  Pet({
     required this.title,
     required this.description,
-    this.isCompleted = false,
+    this.imageUrl,
   });
 }

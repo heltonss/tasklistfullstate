@@ -1,4 +1,4 @@
-# fulltasks
+# petconecta
 
 A new Flutter project.
 

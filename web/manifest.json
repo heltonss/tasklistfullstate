@@ -1,6 +1,6 @@
 {
-    "name": "fulltasks",
-    "short_name": "fulltasks",
+    "name": "petconecta",
+    "short_name": "petconecta",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
